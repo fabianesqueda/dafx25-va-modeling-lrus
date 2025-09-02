@@ -12,11 +12,9 @@ It provides a PyTorch implementation of the proposed LRU-based model for black-b
 
 ## Overview
 
-For quick reference, a minimal training script (`train_dummy.py`) is included.  
-It shows how to instantiate and train the model (`model.py`) on a toy dataset of white-noise sequences processed through a `tanh` nonlinearity.  
-This example also illustrates the expected input/output tensor format: `(batch_size, sequence_length, 1)`.
+For quick reference, a minimal training script (`train_dummy.py`) is included. It shows how to instantiate and train the model (`model.py`) on a toy dataset of white-noise sequences processed through a `tanh` nonlinearity. This example also illustrates the expected input/output tensor format: `(batch_size, sequence_length, 1)`.
 
-- Uses [`mambapy`](https://github.com/alxndrTL/mamba.py) for the efficient prefix-scan (`pscan`) operation.
+Note: The model uses ses [`mambapy`](https://github.com/alxndrTL/mamba.py) for the efficient prefix-scan (`pscan`) operation.
 
 ---
 
