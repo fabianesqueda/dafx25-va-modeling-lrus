@@ -6,15 +6,12 @@ This repository accompanies the paper:
 > Fabián Esqueda, Shogo Murai — DAFx25 (2025)  
 > [Read the paper](https://dafx25.dii.univpm.it/wp-content/uploads/2025/07/DAFx25_paper_61.pdf)
 
-It provides a PyTorch implementation of a **real-valued Linear Recurrent Unit (LRU)** model for black-box modeling of nonlinear audio distortion circuits, such as diode clippers and overdrive pedals.
+It provides a PyTorch implementation of the proposed LRU-based model for black-box modeling of nonlinear audio distortion circuits, such as diode clippers and overdrive pedals.
 
 ---
 
-## ✨ Features
-- **Real LRU blocks**: Stable, efficient, and simpler than complex-valued LRUs.  
-- **Skip-connected nonlinear blocks**: Each block consists of a linear recurrent update + smooth nonlinear function (`TanhApprox`).  
-- **Antialiasing-friendly**: Designed for integration with Antiderivative Antialiasing (ADAA) to reduce oversampling requirements.  
-- **Lightweight PyTorch implementation**: Uses [`mambapy`](https://github.com/alxndrTL/mamba.py) for the efficient prefix-scan (`pscan`) operation.
+## Notes
+> Uses [`mambapy`](https://github.com/alxndrTL/mamba.py) for the efficient prefix-scan (`pscan`) operation.
 
 ---
 
