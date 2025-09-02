@@ -1,5 +1,3 @@
-# Real LRU Models for Audio Distortion Circuits
-
 This repository accompanies the paper:
 
 > **Antialiased Black-Box Modeling of Audio Distortion Circuits using Real Linear Recurrent Units**  
