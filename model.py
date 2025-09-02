@@ -17,7 +17,7 @@ class Model(nn.Module):
                  , output_channels=1
                  , N=8
                  , H=8
-                 , depth=4):
+                 , D=4):
         super().__init__()
 
         self.N = N
@@ -27,7 +27,7 @@ class Model(nn.Module):
 
         self.model_blocks = nn.ModuleList( [ModelBlock(  N=self.N
                                                        , H=self.H)
-                                                    for _ in range(depth)] )
+                                                    for _ in range(D)] )
 
         self.output_layer = nn.Linear(self.H, output_channels, bias=False)
 
