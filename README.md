@@ -1,3 +1,34 @@
-# dafx25-black-box-modeling-real-lrus
+# Real LRU Models for Audio Distortion Circuits
 
-Sound examples: https://drive.google.com/drive/folders/1eRGrj4K2HJxhHrso3v5dbewsRUTHJo-9?usp=drive_link
+This repository accompanies the paper:
+
+> **Antialiased Black-Box Modeling of Audio Distortion Circuits using Real Linear Recurrent Units**  
+> Fabián Esqueda, Shogo Murai — DAFx25 (2025)  
+> [Read the paper](https://dafx25.dii.univpm.it/wp-content/uploads/2025/07/DAFx25_paper_61.pdf)
+
+It provides a PyTorch implementation of a **real-valued Linear Recurrent Unit (LRU)** model for black-box modeling of nonlinear audio distortion circuits, such as diode clippers and overdrive pedals.
+
+---
+
+## ✨ Features
+- **Real LRU blocks**: Stable, efficient, and simpler than complex-valued LRUs.  
+- **Skip-connected nonlinear blocks**: Each block consists of a linear recurrent update + smooth nonlinear function (`TanhApprox`).  
+- **Antialiasing-friendly**: Designed for integration with Antiderivative Antialiasing (ADAA) to reduce oversampling requirements.  
+- **Lightweight PyTorch implementation**: Uses [`mambapy`](https://github.com/alxndrTL/mamba.py) for the efficient prefix-scan (`pscan`) operation.
+
+---
+
+## Sound examples:
+
+https://drive.google.com/drive/folders/1eRGrj4K2HJxhHrso3v5dbewsRUTHJo-9?usp=drive_link
+
+---
+
+## 📦 Installation
+
+Clone this repo and install dependencies:
+
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+pip install torch mambapy
