@@ -30,12 +30,10 @@ X = torch.randn(num_sequences, seq_length, 1)
 Y = torch.tanh(X)
 
 dataset = torch.utils.data.TensorDataset(X, Y)
-loader = torch.utils.data.DataLoader(
-    dataset,
-    batch_size=batch_size,
-    shuffle=True,
-    pin_memory=(device.type == "cuda"),
-)
+loader = torch.utils.data.DataLoader(  dataset
+                                     , batch_size=batch_size
+                                     , shuffle=True
+                                     , drop_last=True)
 
 # Model
 N = 16 # State size
@@ -48,23 +46,23 @@ model = Model(  input_channels=1
               , H=H
               , D=D).to(device)
 
-criterion = nn.MSELoss()
+loss_function = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
 # Training loop
 model.train()
 for epoch in range(epochs):
-    
+
     total_loss = 0.0
-    for xb, yb in loader:
+    for x_true, y_true in loader:
 
         # Move batch to the selected device
-        xb = xb.to(device, non_blocking=(device.type == "cuda"))
-        yb = yb.to(device, non_blocking=(device.type == "cuda"))
+        x_true = x_true.to(device)
+        y_true = y_true.to(device)
 
         optimizer.zero_grad()
-        y_pred = model(xb)
-        loss = criterion(y_pred, yb)
+        y_pred = model(x_true)
+        loss = loss_function(y_pred, y_true)
         loss.backward()
         optimizer.step()
 
